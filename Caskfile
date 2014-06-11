@@ -1,0 +1,29 @@
+# Install cask
+install phinze/cask/brew-cask
+
+# Browsers
+cask install google-chrome
+cask install firefox
+
+# Apps
+cask install alfred
+cask install chromecast
+cask install dropbox
+cask install skype
+cask install libreoffice
+cask install crashplan
+cask install android-file-transfer
+cask install vlc
+
+# Editors
+cask install iterm2
+cask install android-studio-bundle
+cask install sublime-text
+cask install atom
+cask install macvim
+cask install intellij-idea-ce
+cask install xamarin-studio
+
+# Tools
+cask install virtualbox
+cask install xquartz
