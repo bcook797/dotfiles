@@ -1,5 +1,5 @@
 #Install Homebrew
-/usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
 # Install RVM, ruby, and rails
 curl -L https://get.rvm.io | bash -s stable --rails

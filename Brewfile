@@ -17,11 +17,8 @@ install tig
 # Languages
 install node
 install python
-install leiningen
 
 # Android
-install android-ndk
-install android-platform-tools
 install android-sdk
 
 # Other Tools
