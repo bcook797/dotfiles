@@ -18,6 +18,3 @@ curl http://npmjs.org/install.sh | sh
 
 # Install NPM packages
 npm install -g yo
-
-# Install YADR Dotfiles
-sh -c "`curl -fsSL https://raw.github.com/skwp/dotfiles/master/install.sh`" -s ask
