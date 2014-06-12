@@ -28,3 +28,4 @@ cask install robomongo
 # Tools
 cask install virtualbox
 cask install xquartz
+cask install anvil
