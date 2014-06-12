@@ -23,6 +23,7 @@ cask install atom
 cask install macvim
 cask install intellij-idea-ce
 cask install xamarin-studio
+cask install robomongo
 
 # Tools
 cask install virtualbox
