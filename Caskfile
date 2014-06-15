@@ -14,6 +14,7 @@ cask install libreoffice
 cask install crashplan
 cask install android-file-transfer
 cask install vlc
+cask install silverlight
 
 # Editors
 cask install iterm2
