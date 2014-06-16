@@ -33,3 +33,4 @@ cask install anvil
 cask install remote-desktop-connection
 cask install sourcetree
 cask install evernote
+cask install pckeyboardhack
