@@ -27,7 +27,6 @@ install ant
 install pow
 install autoconf
 install automake
-install casperjs
 install heroku-toolbelt
 install libtool
 install libyaml
@@ -42,7 +41,7 @@ install memcached
 
 # Testing
 install phantomjs
-
+install casperjs
 
 tap homebrew/versions
 
