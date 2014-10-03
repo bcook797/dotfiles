@@ -35,3 +35,7 @@ cask install sourcetree
 cask install evernote
 cask install pckeyboardhack
 cask install screenhero
+
+brew tap caskroom/versions
+
+brew cask cleanup
