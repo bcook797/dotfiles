@@ -18,3 +18,8 @@ curl http://npmjs.org/install.sh | sh
 
 # Install NPM packages
 npm install -g yo
+npm install -g cordova
+npm install -g ionic
+npm install -g ios-sim
+npm install -g localtunnel
+npm install -g http-server
