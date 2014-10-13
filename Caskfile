@@ -35,6 +35,7 @@ cask install sourcetree
 cask install evernote
 cask install pckeyboardhack
 cask install screenhero
+cask install vagrant
 
 brew tap caskroom/versions
 
