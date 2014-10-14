@@ -21,6 +21,10 @@ install python
 # Android
 install android-sdk
 
+#DevOps Tools
+install docker
+install boot2docker
+
 # Other Tools
 install maven
 install ant
