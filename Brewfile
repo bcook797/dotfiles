@@ -12,6 +12,7 @@ install vim --override-system-vi
 
 # Version Control
 install git
+install mercurial
 install tig
 
 # Languages
