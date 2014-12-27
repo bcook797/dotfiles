@@ -16,6 +16,9 @@ cask install android-file-transfer
 cask install vlc
 cask install silverlight
 
+# Security
+cask install 1password
+
 # Editors
 cask install iterm2
 cask install android-studio-bundle
