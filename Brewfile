@@ -18,6 +18,7 @@ install tig
 # Languages
 install node
 install python
+install go
 
 # Android
 install android-sdk
