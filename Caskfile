@@ -16,6 +16,7 @@ cask install android-file-transfer
 cask install vlc
 cask install silverlight
 cask install slack
+cask install unity
 
 # Security
 cask install 1password
