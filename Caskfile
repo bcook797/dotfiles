@@ -15,6 +15,7 @@ cask install crashplan
 cask install android-file-transfer
 cask install vlc
 cask install silverlight
+cask install slack
 
 # Security
 cask install 1password
