@@ -38,8 +38,10 @@ install libtool
 install libyaml
 install openssl
 
-# Data Stores
+# Data Stores And Logging
 install mongodb
+install elasticsearch
+install logstash
 install postgresql
 install sqlite
 install mysql
