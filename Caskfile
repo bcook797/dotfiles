@@ -41,6 +41,7 @@ cask install evernote
 cask install pckeyboardhack
 cask install screenhero
 cask install vagrant
+cask install launchcontrol
 
 brew tap caskroom/versions
 
