@@ -31,6 +31,9 @@ cask install intellij-idea-ce
 cask install xamarin-studio
 cask install robomongo
 
+#Dev Ops Tools
+cask install kitematic
+
 # Tools
 cask install virtualbox
 cask install xquartz
