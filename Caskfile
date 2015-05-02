@@ -33,6 +33,7 @@ cask install robomongo
 
 #Dev Ops Tools
 cask install kitematic
+cask install ccmenu18
 
 # Tools
 cask install virtualbox
