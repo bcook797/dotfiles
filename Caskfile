@@ -6,7 +6,6 @@ cask install google-chrome
 cask install firefox
 
 # Apps
-cask install alfred
 cask install chromecast
 cask install dropbox
 cask install skype
