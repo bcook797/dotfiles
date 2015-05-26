@@ -16,9 +16,9 @@ install mercurial
 install tig
 
 # Languages
+install go
 install node
 install python
-install go
 
 # Android
 install android-sdk
