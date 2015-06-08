@@ -17,6 +17,7 @@ install tig
 
 # Languages
 install go
+install rust
 install node
 install python
 
