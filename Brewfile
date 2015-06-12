@@ -1,4 +1,4 @@
-# Make sure we’re using the latest Homebrew
+ Make sure we’re using the latest Homebrew
 update
 
 # Upgrade any already-installed formulae
@@ -9,6 +9,7 @@ install wget
 install ack
 install tmux
 install vim --override-system-vi
+install ctags
 
 # Version Control
 install git

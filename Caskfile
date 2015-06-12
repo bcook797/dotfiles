@@ -25,7 +25,7 @@ cask install iterm2
 cask install android-studio-bundle
 cask install sublime-text
 cask install atom
-cask install macvim
+cask install macvim --custom-icons --override-system-vim --with-lua --with-luajit
 cask install intellij-idea-ce
 cask install xamarin-studio
 cask install robomongo
