@@ -10,6 +10,7 @@ install ack
 install tmux
 install vim --override-system-vi
 install ctags
+install tree
 
 # Version Control
 install git
