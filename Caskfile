@@ -14,6 +14,7 @@ cask install crashplan
 cask install android-file-transfer
 cask install vlc
 cask install silverlight
+cask install daisydisk
 cask install slack
 cask install unity
 
