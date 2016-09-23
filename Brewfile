@@ -11,6 +11,7 @@ install tmux
 install vim --override-system-vi
 install ctags
 install tree
+install TomAnthony/brews/itermocil
 
 # Version Control
 install git
