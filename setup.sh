@@ -12,6 +12,3 @@ brew bundle Caskfile
 
 # configure git to store your password
 git config --global credential.helper osxkeychain
-
-# Install NPM
-curl http://npmjs.org/install.sh | sh
