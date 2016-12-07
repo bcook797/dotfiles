@@ -10,8 +10,6 @@ cask install chromecast
 cask install dropbox
 cask install skype
 cask install libreoffice
-cask install crashplan
-cask install android-file-transfer
 cask install vlc
 cask install silverlight
 cask install daisydisk
@@ -23,16 +21,13 @@ cask install 1password
 
 # Editors
 cask install iterm2
-cask install android-studio-bundle
 cask install sublime-text
 cask install atom
 cask install macvim --custom-icons --override-system-vim --with-lua --with-luajit
 cask install intellij-idea-ce
 cask install xamarin-studio
-cask install robomongo
 
 #Dev Ops Tools
-cask install kitematic
 cask install ccmenu18
 cask install vagrant
 

@@ -11,7 +11,6 @@ install tmux
 install vim --override-system-vi
 install ctags
 install tree
-install TomAnthony/brews/itermocil
 
 # Version Control
 install git
@@ -50,6 +49,7 @@ install postgresql
 install sqlite
 install mysql
 install memcached
+install redis
 
 # Testing
 install phantomjs
