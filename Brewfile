@@ -1,61 +1,84 @@
- Make sure we’re using the latest Homebrew
-update
+cask_args appdir: '/Applications'
+tap 'homebrew/bundle'
+tap 'caskroom/cask'
 
-# Upgrade any already-installed formulae
-upgrade
+# Browsers
+cask 'google-chrome'
+cask 'firefox'
+
+# Apps
+cask 'dropbox'
+cask 'skype'
+cask 'libreoffice'
+cask 'vlc'
+cask 'silverlight'
+cask 'daisydisk'
+
+# Security
+cask '1password'
+
+# Editors
+cask 'iterm2'
+cask 'sublime-text'
+cask 'atom'
+cask 'macvim'
+cask 'intellij-idea'
+cask 'xamarin-studio'
+
+#Dev Ops Tools
+cask 'ccmenu18'
+cask 'vagrant'
+
+# Tools
+cask 'virtualbox'
+cask 'xquartz'
+cask 'pckeyboardhack'
+cask 'screenhero'
+
+#Languages
+cask 'java'
+cask 'mono-mdk'
+
+tap 'caskroom/versions'
 
 # Terminal
-install wget
-install ack
-install tmux
-install vim --override-system-vi
-install ctags
-install tree
+brew 'wget'
+brew 'ack'
+brew 'tmux'
+brew 'vim', args: ['--override-system-vi']
+brew 'ctags'
+brew 'tree'
 
 # Version Control
-install git
-install mercurial
-install tig
+brew 'git'
+brew 'mercurial'
+brew 'tig'
 
 # Languages
-install go
-install rust
-install node
-install python
-
-# Android
-install android-sdk
-
-#DevOps Tools
-install docker
-install boot2docker
+brew 'go'
+brew 'rust'
+brew 'node'
+brew 'python'
 
 # Other Tools
-install maven
-install ant
-install pow
-install autoconf
-install automake
-install heroku-toolbelt
-install libtool
-install libyaml
-install openssl
+brew 'maven'
+brew 'ant'
+brew 'pow'
+brew 'autoconf'
+brew 'automake'
+brew 'heroku-toolbelt'
+brew 'libtool'
+brew 'libyaml'
+brew 'openssl'
 
 # Data Stores And Logging
-install mongodb
-install elasticsearch
-install logstash
-install postgresql
-install sqlite
-install mysql
-install memcached
-install redis
+brew 'mongodb'
+brew 'elasticsearch'
+brew 'logstash'
+brew 'postgresql'
+brew 'sqlite'
+brew 'mysql'
+brew 'memcached'
+brew 'redis'
 
-# Testing
-install phantomjs
-install casperjs
-
-tap homebrew/versions
-
-# Remove outdated versions from the cellar
-cleanup
+tap 'homebrew/versions'
