@@ -23,7 +23,7 @@ cask 'sublime-text'
 cask 'atom'
 cask 'macvim'
 cask 'intellij-idea'
-cask 'xamarin-studio'
+cask 'visual-studio'
 
 #Dev Ops Tools
 cask 'ccmenu18'
@@ -51,7 +51,6 @@ brew 'tree'
 
 # Version Control
 brew 'git'
-brew 'mercurial'
 brew 'tig'
 
 # Languages
