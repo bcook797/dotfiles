@@ -13,6 +13,7 @@ cask 'libreoffice'
 cask 'vlc'
 cask 'silverlight'
 cask 'daisydisk'
+cask 'slack'
 
 # Security
 cask '1password'
@@ -24,20 +25,28 @@ cask 'atom'
 cask 'macvim'
 cask 'intellij-idea'
 cask 'visual-studio'
+cask 'visual-studio-code'
 
 #Dev Ops Tools
 cask 'ccmenu18'
 cask 'vagrant'
+cask 'docker'
 
 # Tools
 cask 'virtualbox'
 cask 'xquartz'
 cask 'pckeyboardhack'
-cask 'screenhero'
+cask 'tunnelblick'
+cask 'gpg-suite'
+cask 'postman'
+
+# DB Tools
+cask 'dbeaver-community'
+cask 'sequel-pro'
 
 #Languages
 cask 'java'
-cask 'mono-mdk'
+cask 'java6'
 
 tap 'caskroom/versions'
 
