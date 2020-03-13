@@ -34,7 +34,6 @@ cask 'dbeaver-community'
 
 #Languages
 cask 'java'
-cask 'java6'
 
 tap 'homebrew/cask-versions'
 
@@ -75,5 +74,3 @@ brew 'openssl'
 # brew 'mysql'
 # brew 'memcached'
 # brew 'redis'
-
-tap 'homebrew/versions'
