@@ -52,7 +52,7 @@ brew 'tig'
 # Languages
 # brew 'go'
 # brew 'rust'
-brew 'node'
+# brew 'node'
 brew 'python'
 
 # Other Tools
