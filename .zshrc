@@ -98,11 +98,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH="/usr/local/sbin:$PATH"
 
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
 export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
-
-alias java6="export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)"
-alias java8="export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)"
