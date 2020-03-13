@@ -36,13 +36,13 @@ cask 'dbeaver-community'
 cask 'java'
 cask 'java6'
 
-tap 'caskroom/versions'
+tap 'homebrew/cask-versions'
 
 # Terminal
 brew 'wget'
 brew 'ack'
 brew 'tmux'
-brew 'vim', args: ['--override-system-vi']
+brew 'vim'
 brew 'ctags'
 brew 'tree'
 
