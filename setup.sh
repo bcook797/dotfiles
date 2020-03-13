@@ -4,9 +4,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 # Install RVM, ruby, and rails
 curl -L https://get.rvm.io | bash -s stable --rails
 
-# Install NVM
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-
 # Install tools
 brew bundle
 
