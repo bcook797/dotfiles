@@ -1,6 +1,6 @@
 cask_args appdir: '/Applications'
 tap 'homebrew/bundle'
-tap 'caskroom/cask'
+tap 'homebrew/cask'
 
 # Browsers
 cask 'google-chrome'
