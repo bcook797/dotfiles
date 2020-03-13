@@ -1,11 +1,11 @@
 #Install Homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # Install RVM, ruby, and rails
 curl -L https://get.rvm.io | bash -s stable --rails
 
 # Install tools
-brew bundle Brewfile
+brew bundle
 
 # configure git to store your password
 git config --global credential.helper osxkeychain
