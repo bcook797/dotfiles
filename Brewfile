@@ -6,6 +6,9 @@ tap 'homebrew/cask'
 cask 'google-chrome'
 cask 'firefox'
 
+# Remote Tools
+cask 'zoom'
+
 # Apps
 cask 'daisydisk'
 # cask 'slack'
