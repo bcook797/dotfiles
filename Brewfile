@@ -11,6 +11,7 @@ cask 'zoom'
 
 # Apps
 cask 'daisydisk'
+cask 'obsidian'
 # cask 'slack'
 
 # Security
@@ -32,7 +33,7 @@ cask 'docker'
 cask 'postman'
 
 # DB Tools
-cask 'dbeaver-community'
+# cask 'dbeaver-community'
 # cask 'sequel-pro'
 
 #Languages
