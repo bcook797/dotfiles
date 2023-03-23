@@ -22,6 +22,7 @@ cask 'iterm2'
 cask 'intellij-idea'
 # cask 'visual-studio'
 cask 'visual-studio-code'
+cask 'fleet'
 
 #Dev Ops Tools
 # cask 'ccmenu18'
