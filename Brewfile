@@ -31,7 +31,7 @@ cask 'fleet'
 # Tools
 # cask 'tunnelblick'
 # cask 'gpg-suite'
-cask 'postman'
+# cask 'postman'
 
 # DB Tools
 # cask 'dbeaver-community'
