@@ -16,6 +16,8 @@ cask 'obsidian'
 # Security
 cask '1password'
 cask 'authy'
+cask 'outline'
+cask 'outline-manager'
 
 # Editors
 cask 'iterm2'
