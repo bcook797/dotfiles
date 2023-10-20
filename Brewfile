@@ -10,19 +10,18 @@ cask 'firefox'
 cask 'zoom'
 
 # Apps
-cask 'daisydisk'
 cask 'obsidian'
 # cask 'slack'
 
 # Security
 cask '1password'
+cask 'authy'
 
 # Editors
 cask 'iterm2'
 cask 'intellij-idea'
 # cask 'visual-studio'
 cask 'visual-studio-code'
-cask 'fleet'
 
 #Dev Ops Tools
 # cask 'ccmenu18'
@@ -38,7 +37,7 @@ cask 'fleet'
 # cask 'sequel-pro'
 
 #Languages
-cask 'java'
+# cask 'java'
 
 tap 'homebrew/cask-versions'
 
