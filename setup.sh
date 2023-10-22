@@ -21,3 +21,4 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git config --global alias.pr pull -r
 git config --global alias.ps push
 git config --global alias.st status
+git config --global alias.co checkout
