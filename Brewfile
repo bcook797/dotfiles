@@ -28,6 +28,7 @@ cask 'visual-studio-code'
 #Dev Ops Tools
 # cask 'ccmenu18'
 # cask 'docker'
+cask colima
 
 # Tools
 # cask 'tunnelblick'
@@ -60,6 +61,10 @@ brew 'tig'
 # brew 'rust'
 # brew 'node'
 brew 'python'
+
+# Infra
+brew docker
+brew docker-compose
 
 # Other Tools
 brew 'maven'
