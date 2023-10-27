@@ -34,6 +34,7 @@ cask colima
 # cask 'tunnelblick'
 # cask 'gpg-suite'
 # cask 'postman'
+cask insomnia
 
 # DB Tools
 # cask 'dbeaver-community'
