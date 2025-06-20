@@ -16,7 +16,7 @@ cask 'obsidian'
 # Security
 cask '1password'
 cask 'authy'
-cask 'outline'
+#cask 'outline'
 cask 'outline-manager'
 
 # Editors
@@ -28,14 +28,14 @@ cask 'visual-studio-code'
 #Dev Ops Tools
 # cask 'ccmenu18'
 # cask 'docker'
-cask colima
+# cask colima
 
 # Tools
 # cask 'tunnelblick'
 # cask 'gpg-suite'
 # cask 'postman'
-cask insomnia
-cask bruno
+#cask insomnia
+#cask bruno
 
 # DB Tools
 # cask 'dbeaver-community'
