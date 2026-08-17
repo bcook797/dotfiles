@@ -1,89 +1,46 @@
-cask_args appdir: '/Applications'
-tap 'homebrew/bundle'
-tap 'homebrew/cask'
+cask_args appdir: "/Applications"
 
 # Browsers
-cask 'google-chrome'
-cask 'firefox'
+cask "google-chrome"
+cask "firefox"
 
-# Remote Tools
-cask 'zoom'
+# Communication and knowledge
+cask "zoom"
+cask "obsidian"
+cask "slack"
 
-# Apps
-cask 'obsidian'
-# cask 'slack'
+# Security and networking
+cask "1password"
+cask "outline-manager"
 
-# Security
-cask '1password'
-cask 'authy'
-#cask 'outline'
-cask 'outline-manager'
+# Terminal and editor
+cask "ghostty"
+cask "visual-studio-code"
+cask "font-jetbrains-mono-nerd-font"
 
-# Editors
-cask 'iterm2'
-cask 'intellij-idea'
-# cask 'visual-studio'
-cask 'visual-studio-code'
+# Shell and terminal workflow
+brew "starship"
+brew "mise"
+brew "herdr"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
 
-#Dev Ops Tools
-# cask 'ccmenu18'
-# cask 'docker'
-# cask colima
+# Version control
+brew "git"
+brew "gh"
+brew "tig"
+brew "lazygit"
 
-# Tools
-# cask 'tunnelblick'
-# cask 'gpg-suite'
-# cask 'postman'
-#cask insomnia
-#cask bruno
+# Modern command-line essentials
+brew "ripgrep"
+brew "fd"
+brew "fzf"
+brew "jq"
+brew "tree"
 
-# DB Tools
-# cask 'dbeaver-community'
-# cask 'sequel-pro'
+# Neovim and LazyVim requirements
+brew "neovim"
+brew "tree-sitter-cli"
 
-#Languages
-# cask 'java'
-
-tap 'homebrew/cask-versions'
-
-# Terminal
-brew 'wget'
-brew 'ack'
-brew 'tmux'
-brew 'vim'
-brew 'ctags'
-brew 'tree'
-
-# Version Control
-brew 'git'
-brew 'tig'
-
-# Languages
-# brew 'go'
-# brew 'rust'
-# brew 'node'
-brew 'python'
-
-# Infra
-brew docker
-brew docker-compose
-
-# Other Tools
-brew 'maven'
-brew 'ant'
-brew 'pow'
-brew 'autoconf'
-brew 'automake'
-brew 'libtool'
-brew 'libyaml'
-brew 'openssl'
-
-# Data Stores And Logging
-# brew 'mongodb'
-# brew 'elasticsearch'
-# brew 'logstash'
-# brew 'postgresql'
-# brew 'sqlite'
-# brew 'mysql'
-# brew 'memcached'
-# brew 'redis'
+# Coding agents managed by Homebrew
+brew "gemini-cli"
