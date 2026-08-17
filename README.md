@@ -27,6 +27,7 @@ Other options:
 --skip-agents      Skip native-only coding-agent harnesses
 --refresh-agents   Re-run native-only installers when commands exist
 --skip-nvim-sync   Skip the headless LazyVim plugin synchronization
+--github-ssh       Authenticate GitHub and configure an SSH key
 --macos-defaults   Apply the reviewed, opt-in macOS preferences
 ```
 
@@ -46,8 +47,10 @@ Open a new Ghostty window, then run:
 
 ```sh
 ./scripts/doctor.sh
-gh auth login
+./setup.sh --github-ssh
 ```
+
+The GitHub SSH option opens GitHub's browser authentication flow. GitHub CLI checks for an existing SSH key and offers to generate and upload a new one when needed, then configures Git operations for `github.com` to use SSH. Because this changes your GitHub account, it only runs when explicitly requested.
 
 Launch `claude`, `codex`, `opencode`, and `pi` once each and complete their interactive authentication flows. No provider keys or authentication files are stored in this repository.
 

@@ -13,6 +13,7 @@ SKIP_AGENTS=false
 REFRESH_AGENTS=false
 SKIP_NVIM_SYNC=false
 APPLY_MACOS_DEFAULTS=false
+SETUP_GITHUB_SSH=false
 
 usage() {
   cat <<'EOF'
@@ -23,6 +24,7 @@ Options:
   --skip-agents      Do not install native-only coding-agent harnesses
   --refresh-agents   Re-run native-only installers when commands exist
   --skip-nvim-sync   Do not install/synchronize LazyVim plugins
+  --github-ssh       Authenticate GitHub and configure an SSH key
   --macos-defaults   Run the opt-in macOS defaults scaffold
   -h, --help         Show this help
 EOF
@@ -48,6 +50,7 @@ while (($#)); do
     --skip-agents) SKIP_AGENTS=true ;;
     --refresh-agents) REFRESH_AGENTS=true ;;
     --skip-nvim-sync) SKIP_NVIM_SYNC=true ;;
+    --github-ssh) SETUP_GITHUB_SSH=true ;;
     --macos-defaults) APPLY_MACOS_DEFAULTS=true ;;
     -h|--help) usage; exit 0 ;;
     *) printf 'Unknown option: %s\n' "$1" >&2; usage >&2; exit 2 ;;
@@ -235,6 +238,27 @@ configure_git_identity() {
   done
 }
 
+configure_github_ssh() {
+  if $DRY_RUN; then
+    log "Would authenticate GitHub CLI and configure an SSH key for github.com"
+    return
+  fi
+
+  if ! command -v gh >/dev/null 2>&1; then
+    printf 'GitHub CLI is unavailable; cannot configure GitHub SSH access.\n' >&2
+    return 1
+  fi
+
+  if [[ ! -t 0 ]]; then
+    printf 'GitHub SSH setup is interactive and requires a terminal.\n' >&2
+    return 1
+  fi
+
+  # GitHub CLI detects existing keys and offers to generate and upload a new
+  # key when needed. It also records SSH as the Git protocol for github.com.
+  gh auth login --hostname github.com --git-protocol ssh --web
+}
+
 ensure_command_line_tools
 ensure_homebrew
 
@@ -248,6 +272,10 @@ install_lazyvim
 link_path "${REPO_DIR}/.gitconfig" "${HOME}/.gitconfig"
 
 configure_git_identity
+
+if $SETUP_GITHUB_SSH; then
+  configure_github_ssh
+fi
 
 if ! $SKIP_AGENTS; then
   install_native_agent "Pi" pi "https://pi.dev/install.sh" sh
