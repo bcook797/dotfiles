@@ -6,7 +6,7 @@ readonly REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly BACKUP_ROOT="${HOME}/.dotfiles-backup"
 readonly BACKUP_DIR="${BACKUP_ROOT}/$(date +%Y%m%d-%H%M%S)-$$"
 
-export PATH="${HOME}/.local/bin:${HOME}/.opencode/bin:${PATH}"
+export PATH="${HOME}/.local/bin:${PATH}"
 
 DRY_RUN=false
 SKIP_AGENTS=false
@@ -20,8 +20,8 @@ Usage: ./setup.sh [options]
 
 Options:
   --dry-run          Show what would change without changing it
-  --skip-agents      Do not install native coding-agent harnesses
-  --refresh-agents   Re-run native installers even when commands exist
+  --skip-agents      Do not install native-only coding-agent harnesses
+  --refresh-agents   Re-run native-only installers when commands exist
   --skip-nvim-sync   Do not install/synchronize LazyVim plugins
   --macos-defaults   Run the opt-in macOS defaults scaffold
   -h, --help         Show this help
@@ -137,6 +137,32 @@ configure_starship() {
   run starship preset catppuccin-powerline -o "$target"
 }
 
+install_lazyvim() {
+  local target="${HOME}/.config/nvim"
+  local path
+
+  if [[ -d "$target" && ! -L "$target" && -f "${target}/lua/config/lazy.lua" ]]; then
+    log "LazyVim starter already installed: ${target}"
+    return
+  fi
+
+  # Follow LazyVim's recommended clean-install flow, preserving every existing
+  # Neovim directory in this bootstrap's timestamped backup location.
+  for path in \
+    "$target" \
+    "${HOME}/.local/share/nvim" \
+    "${HOME}/.local/state/nvim" \
+    "${HOME}/.cache/nvim"; do
+    if [[ -e "$path" || -L "$path" ]]; then
+      backup_path "$path"
+    fi
+  done
+
+  run mkdir -p "$(dirname "$target")"
+  run git clone https://github.com/LazyVim/starter "$target"
+  run rm -rf "${target}/.git"
+}
+
 install_native_agent() {
   local name="$1"
   local executable="$2"
@@ -220,21 +246,17 @@ link_path "${REPO_DIR}/.zprofile" "${HOME}/.zprofile"
 link_path "${REPO_DIR}/.zshrc" "${HOME}/.zshrc"
 configure_starship
 link_path "${REPO_DIR}/config/ghostty/config" "${HOME}/Library/Application Support/com.mitchellh.ghostty/config"
-link_path "${REPO_DIR}/config/nvim" "${HOME}/.config/nvim"
+install_lazyvim
 link_path "${REPO_DIR}/.gitconfig" "${HOME}/.gitconfig"
 
 link_path "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.codex/AGENTS.md"
 link_path "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.pi/agent/AGENTS.md"
 link_path "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.config/opencode/AGENTS.md"
 link_path "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.claude/CLAUDE.md"
-link_path "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.gemini/GEMINI.md"
 
 configure_git_identity
 
 if ! $SKIP_AGENTS; then
-  install_native_agent "Claude Code" claude "https://claude.ai/install.sh" bash
-  install_native_agent "Codex" codex "https://chatgpt.com/codex/install.sh" sh
-  install_native_agent "OpenCode" opencode "https://opencode.ai/install" bash --no-modify-path
   install_native_agent "Pi" pi "https://pi.dev/install.sh" sh
 fi
 
@@ -250,4 +272,4 @@ if $APPLY_MACOS_DEFAULTS; then
   run "${REPO_DIR}/scripts/macos-defaults.sh"
 fi
 
-log "Setup complete. Open a new Ghostty window, run scripts/doctor.sh, then authenticate gh and each coding agent."
+log "Setup complete. Open a new Ghostty window, run scripts/doctor.sh, then authenticate gh and each managed coding agent."

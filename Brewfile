@@ -1,5 +1,7 @@
 cask_args appdir: "/Applications"
 
+tap "anomalyco/tap"
+
 # Browsers
 cask "google-chrome"
 cask "firefox"
@@ -43,4 +45,6 @@ brew "neovim"
 brew "tree-sitter-cli"
 
 # Coding agents managed by Homebrew
-brew "gemini-cli"
+cask "claude-code"
+cask "codex"
+brew "anomalyco/tap/opencode"

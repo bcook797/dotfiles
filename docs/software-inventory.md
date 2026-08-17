@@ -17,7 +17,7 @@ This catalog preserves the intent found in the current machine, the working Brew
 - Version control: Git, GitHub CLI, tig, lazygit
 - Essentials: ripgrep, fd, fzf, jq, tree
 - Editor: Neovim, LazyVim, tree-sitter CLI
-- Coding-agent harnesses: Claude Code, Codex, OpenCode, Pi, Gemini CLI
+- Coding-agent harnesses: Claude Code, Codex, OpenCode, Pi
 
 ## Viable manual or specialized installs
 
@@ -48,4 +48,4 @@ Runtimes should normally be declared by individual projects through mise. Instal
 
 ## Adding something new
 
-Add universal GUI applications and CLI tools to the Brewfile. Add coding harnesses to the native-agent registry in `setup.sh` when their vendor installer has a concrete advantage. Record specialized or experimental software here first; promote it to the baseline only after it proves broadly useful.
+Add universal GUI applications and CLI tools to the Brewfile. Add a coding harness to the native-agent registry in `setup.sh` only when Homebrew is unavailable or its vendor installer provides a required update capability that Homebrew cannot match. Record specialized or experimental software here first; promote it to the baseline only after it proves broadly useful.

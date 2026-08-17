@@ -57,14 +57,18 @@ fi
 check_link "${REPO_DIR}/.zprofile" "${HOME}/.zprofile"
 check_link "${REPO_DIR}/.zshrc" "${HOME}/.zshrc"
 check_link "${REPO_DIR}/config/ghostty/config" "${HOME}/Library/Application Support/com.mitchellh.ghostty/config"
-check_link "${REPO_DIR}/config/nvim" "${HOME}/.config/nvim"
 check_link "${REPO_DIR}/.gitconfig" "${HOME}/.gitconfig"
+
+if [[ -f "${HOME}/.config/nvim/lua/config/lazy.lua" && ! -d "${HOME}/.config/nvim/.git" ]]; then
+  pass "LazyVim starter is installed"
+else
+  fail "LazyVim starter is missing or still contains its Git metadata"
+fi
 
 check_link "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.codex/AGENTS.md"
 check_link "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.pi/agent/AGENTS.md"
 check_link "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.config/opencode/AGENTS.md"
 check_link "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.claude/CLAUDE.md"
-check_link "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.gemini/GEMINI.md"
 
 zsh -n "${REPO_DIR}/.zprofile" "${REPO_DIR}/.zshrc" \
   && pass "Zsh configuration syntax" \
@@ -103,16 +107,15 @@ version_line "Claude Code" claude --version
 version_line "Codex" codex --version
 version_line "OpenCode" opencode --version
 version_line "Pi" pi --version
-version_line "Gemini CLI" gemini --version
 
 if command -v brew >/dev/null 2>&1; then
-  for agent in claude-code codex opencode; do
+  for agent in pi; do
     if brew list --formula "$agent" >/dev/null 2>&1 || brew list --cask "$agent" >/dev/null 2>&1; then
       warn "${agent} is Homebrew-managed; the plan uses a native installer for this harness"
     fi
   done
 fi
 
-printf '\nAuthentication is intentionally manual: run gh auth login, then launch claude, codex, opencode, pi, and gemini.\n'
+printf '\nAuthentication is intentionally manual: run gh auth login, then launch claude, codex, opencode, and pi.\n'
 printf 'Result: %d failure(s), %d warning(s)\n' "$failures" "$warnings"
 ((failures == 0))

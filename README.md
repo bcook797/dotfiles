@@ -24,21 +24,21 @@ Preview all bootstrap actions without making changes:
 Other options:
 
 ```text
---skip-agents      Skip native coding-agent installers
---refresh-agents   Re-run native installers for upgrades or repair
+--skip-agents      Skip native-only coding-agent harnesses
+--refresh-agents   Re-run native-only installers when commands exist
 --skip-nvim-sync   Skip the headless LazyVim plugin synchronization
---macos-defaults   Run the currently empty, opt-in defaults scaffold
+--macos-defaults   Apply the reviewed, opt-in macOS preferences
 ```
 
 Conflicting files are moved to `~/.dotfiles-backup/<timestamp>/`. The script never removes extra Homebrew packages or old agent installations.
 
 ## What is managed
 
-The Brewfile owns the universal desktop and CLI baseline. Repository files are linked into their standard locations for Zsh, Git, Ghostty, Neovim, and each harness's global instruction file. Starship's official Catppuccin Powerline preset is generated locally during setup; Mocha is the preset's default palette.
+The Brewfile owns the universal desktop and CLI baseline. Repository files are linked into their standard locations for Zsh, Git, Ghostty, and each harness's global instruction file. The bootstrap installs the official LazyVim starter directly in `~/.config/nvim`, while Starship's official Catppuccin Powerline preset is generated locally during setup.
 
 Language runtimes are intentionally not installed globally. mise is activated in Zsh so projects can declare their own versions with commands such as `mise use node@lts`.
 
-Claude Code, Codex, OpenCode, and Pi use their documented vendor installers, while Gemini CLI is managed by Homebrew. Project runtime versions still belong to mise rather than this repository. Agent credentials, sessions, caches, plugins, and memories remain local and untracked.
+Claude Code, Codex, and OpenCode are managed by Homebrew. Claude Code is allowed to apply targeted Homebrew upgrades in the background. Pi remains on its documented vendor installer because it has no official Homebrew package. Project runtime versions still belong to mise rather than this repository. Agent credentials, sessions, caches, plugins, and memories remain local and untracked.
 
 ## After setup
 
@@ -49,9 +49,9 @@ Open a new Ghostty window, then run:
 gh auth login
 ```
 
-Launch `claude`, `codex`, `opencode`, `pi`, and `gemini` once each and complete their interactive authentication flows. No provider keys or authentication files are stored in this repository.
+Launch `claude`, `codex`, `opencode`, and `pi` once each and complete their interactive authentication flows. No provider keys or authentication files are stored in this repository.
 
-Run `:LazyHealth` inside Neovim after its initial synchronization. The LazyVim configuration uses Catppuccin Mocha and intentionally enables no language extras. Add future customization as focused files under `config/nvim/lua/plugins/` or through `config/nvim/lazyvim.json`.
+Run `:LazyHealth` inside Neovim after its initial synchronization. Customize the local starter in `~/.config/nvim`; Neovim configuration is intentionally not tracked by this repository.
 
 To intentionally regenerate the current official Starship preset, remove or back up `~/.config/starship.toml` and run:
 
@@ -59,7 +59,7 @@ To intentionally regenerate the current official Starship preset, remove or back
 starship preset catppuccin-powerline -o ~/.config/starship.toml
 ```
 
-Plugin versions are intentionally not committed. `lazy-lock.json` is generated locally and ignored, so a fresh machine resolves current plugin releases.
+Plugin versions and local LazyVim customizations are intentionally not committed to this repository.
 
 ## Git identities
 

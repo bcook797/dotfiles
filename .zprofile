@@ -6,5 +6,8 @@ elif [[ -x /usr/local/bin/brew ]]; then
 fi
 
 typeset -U path PATH
-path=("$HOME/.local/bin" "$HOME/.opencode/bin" "$HOME/bin" $path)
+path=("$HOME/.local/bin" "$HOME/bin" $path)
 export PATH
+
+# Let Claude Code apply its own targeted Homebrew upgrades in the background.
+export CLAUDE_CODE_PACKAGE_MANAGER_AUTO_UPDATE=1
