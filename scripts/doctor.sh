@@ -54,7 +54,6 @@ else
   fail "Homebrew is not available"
 fi
 
-check_link "${REPO_DIR}/.zprofile" "${HOME}/.zprofile"
 check_link "${REPO_DIR}/.zshrc" "${HOME}/.zshrc"
 check_link "${REPO_DIR}/.gitconfig" "${HOME}/.gitconfig"
 
@@ -64,7 +63,7 @@ else
   fail "LazyVim starter is missing or still contains its Git metadata"
 fi
 
-zsh -n "${REPO_DIR}/.zprofile" "${REPO_DIR}/.zshrc" \
+zsh -n "${REPO_DIR}/.zshrc" \
   && pass "Zsh configuration syntax" \
   || fail "Zsh configuration syntax"
 

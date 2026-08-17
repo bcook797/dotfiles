@@ -242,7 +242,6 @@ if command -v brew >/dev/null 2>&1; then
   run brew bundle --file "${REPO_DIR}/Brewfile"
 fi
 
-link_path "${REPO_DIR}/.zprofile" "${HOME}/.zprofile"
 link_path "${REPO_DIR}/.zshrc" "${HOME}/.zshrc"
 configure_starship
 install_lazyvim
