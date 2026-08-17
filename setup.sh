@@ -193,6 +193,27 @@ install_native_agent() {
   rm -f "$installer"
 }
 
+install_global_node() {
+  if ! command -v mise >/dev/null 2>&1; then
+    if $DRY_RUN; then
+      log "Would install the latest Node.js globally with mise"
+      return
+    fi
+    printf 'mise is unavailable; cannot install Node.js for Pi.\n' >&2
+    return 1
+  fi
+
+  run mise use --global node@latest
+
+  if ! $DRY_RUN; then
+    eval "$(mise activate bash)"
+    command -v node >/dev/null 2>&1 || {
+      printf 'Node.js was installed by mise but is unavailable on PATH.\n' >&2
+      return 1
+    }
+  fi
+}
+
 configure_git_identity() {
   local local_config="${HOME}/.gitconfig.local"
   local name email scope scope_name scope_email scope_config index=1
@@ -278,6 +299,7 @@ if $SETUP_GITHUB_SSH; then
 fi
 
 if ! $SKIP_AGENTS; then
+  install_global_node
   install_native_agent "Pi" pi "https://pi.dev/install.sh" sh
 fi
 

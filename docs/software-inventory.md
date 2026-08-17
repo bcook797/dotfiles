@@ -16,6 +16,7 @@ This catalog preserves the intent found in the current machine, the working Brew
 - Shell: Starship, mise, herdr, zsh-autosuggestions, zsh-syntax-highlighting
 - Version control: Git, GitHub CLI, tig, lazygit
 - Essentials: ripgrep, fd, fzf, jq, tree
+- Runtime required by Pi: latest Node.js, installed globally through mise
 - Editor: Neovim, LazyVim, tree-sitter CLI
 - Coding-agent harnesses: Claude Code, Codex, OpenCode, Pi
 
@@ -23,7 +24,7 @@ This catalog preserves the intent found in the current machine, the working Brew
 
 These remain useful, but are not universal enough for the minimal bootstrap.
 
-- Languages and build tools: OpenJDK 21, Maven, Ant, Dart SDK, Python, Go, Rust, Node.js
+- Languages and build tools: OpenJDK 21, Maven, Ant, Dart SDK, Python, Go, Rust
 - Containers: Podman, Docker CLI compatibility, Docker Compose, lazydocker, Colima, Docker Desktop
 - Terminal/editor alternatives: tmux, Vim, IntelliJ IDEA, Cursor, iTerm2
 - Testing and automation: Playwright CLI, adr-tools
@@ -31,12 +32,12 @@ These remain useful, but are not universal enough for the minimal bootstrap.
 - Desktop utilities: ChatGPT, Claude Desktop, balenaEtcher, GPG Suite, Tunnelblick, DaisyDisk, Dropbox, VLC, LibreOffice
 - Developer/data clients: Bruno, Insomnia, Postman, DBeaver Community
 
-Runtimes should normally be declared by individual projects through mise. Install a global runtime only when a concrete workflow requires it.
+Runtimes should normally be declared by individual projects through mise. Global Node.js is the sole baseline exception because Pi requires it.
 
 ## Retired, replaced, or unavailable
 
 - Oh My Zsh and Bullet Train: replaced by native Zsh and Starship.
-- NVM: no longer bootstrapped; mise is available for project-owned Node versions.
+- NVM: replaced by mise for both the Pi-required global Node.js version and project-owned versions.
 - Authy Desktop: discontinued and not suitable for a new-machine baseline.
 - Outline's older `outline` cask: replaced by Outline Manager.
 - Docker aliasing through Podman: machine-specific and no longer placed in global shell configuration.

@@ -37,9 +37,9 @@ Conflicting files are moved to `~/.dotfiles-backup/<timestamp>/`. The script nev
 
 The Brewfile owns the universal desktop and CLI baseline. Repository files are linked into their standard locations for Zsh and Git. Ghostty uses its built-in defaults. The bootstrap installs the official LazyVim starter directly in `~/.config/nvim`, while Starship's official Catppuccin Powerline preset is generated locally during setup.
 
-Language runtimes are intentionally not installed globally. mise is activated in Zsh so projects can declare their own versions with commands such as `mise use node@lts`.
+Language runtimes are normally project-scoped through mise. Node.js is the deliberate exception: the bootstrap runs `mise use --global node@latest` because the native Pi installer requires it.
 
-Claude Code, Codex, and OpenCode are managed by Homebrew. Claude Code is allowed to apply targeted Homebrew upgrades in the background. Pi remains on its documented vendor installer because it has no official Homebrew package. Project runtime versions still belong to mise rather than this repository. Agent credentials, sessions, caches, plugins, and memories remain local and untracked.
+Claude Code, Codex, and OpenCode are managed by Homebrew. Claude Code is allowed to apply targeted Homebrew upgrades in the background. Pi remains on its documented vendor installer because it has no official Homebrew package. Other project runtime versions still belong to mise rather than this repository. Agent credentials, sessions, caches, plugins, and memories remain local and untracked.
 
 ## After setup
 
