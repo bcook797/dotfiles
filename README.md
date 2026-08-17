@@ -34,7 +34,7 @@ Conflicting files are moved to `~/.dotfiles-backup/<timestamp>/`. The script nev
 
 ## What is managed
 
-The Brewfile owns the universal desktop and CLI baseline. Repository files are linked into their standard locations for Zsh, Git, Ghostty, and each harness's global instruction file. The bootstrap installs the official LazyVim starter directly in `~/.config/nvim`, while Starship's official Catppuccin Powerline preset is generated locally during setup.
+The Brewfile owns the universal desktop and CLI baseline. Repository files are linked into their standard locations for Zsh, Git, and each harness's global instruction file. Ghostty uses its built-in defaults. The bootstrap installs the official LazyVim starter directly in `~/.config/nvim`, while Starship's official Catppuccin Powerline preset is generated locally during setup.
 
 Language runtimes are intentionally not installed globally. mise is activated in Zsh so projects can declare their own versions with commands such as `mise use node@lts`.
 

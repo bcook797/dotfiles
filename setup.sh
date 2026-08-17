@@ -245,7 +245,6 @@ fi
 link_path "${REPO_DIR}/.zprofile" "${HOME}/.zprofile"
 link_path "${REPO_DIR}/.zshrc" "${HOME}/.zshrc"
 configure_starship
-link_path "${REPO_DIR}/config/ghostty/config" "${HOME}/Library/Application Support/com.mitchellh.ghostty/config"
 install_lazyvim
 link_path "${REPO_DIR}/.gitconfig" "${HOME}/.gitconfig"
 

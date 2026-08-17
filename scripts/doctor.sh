@@ -56,7 +56,6 @@ fi
 
 check_link "${REPO_DIR}/.zprofile" "${HOME}/.zprofile"
 check_link "${REPO_DIR}/.zshrc" "${HOME}/.zshrc"
-check_link "${REPO_DIR}/config/ghostty/config" "${HOME}/Library/Application Support/com.mitchellh.ghostty/config"
 check_link "${REPO_DIR}/.gitconfig" "${HOME}/.gitconfig"
 
 if [[ -f "${HOME}/.config/nvim/lua/config/lazy.lua" && ! -d "${HOME}/.config/nvim/.git" ]]; then
@@ -82,12 +81,6 @@ if command -v starship >/dev/null 2>&1; then
   else
     fail "Starship configuration is missing"
   fi
-fi
-
-if command -v ghostty >/dev/null 2>&1; then
-  ghostty +validate-config --config-file="${REPO_DIR}/config/ghostty/config" >/dev/null 2>&1 \
-    && pass "Ghostty configuration" \
-    || fail "Ghostty configuration"
 fi
 
 version_line "Neovim" nvim --version
