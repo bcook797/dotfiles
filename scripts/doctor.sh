@@ -64,11 +64,6 @@ else
   fail "LazyVim starter is missing or still contains its Git metadata"
 fi
 
-check_link "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.codex/AGENTS.md"
-check_link "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.pi/agent/AGENTS.md"
-check_link "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.config/opencode/AGENTS.md"
-check_link "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.claude/CLAUDE.md"
-
 zsh -n "${REPO_DIR}/.zprofile" "${REPO_DIR}/.zshrc" \
   && pass "Zsh configuration syntax" \
   || fail "Zsh configuration syntax"

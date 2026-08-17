@@ -248,11 +248,6 @@ configure_starship
 install_lazyvim
 link_path "${REPO_DIR}/.gitconfig" "${HOME}/.gitconfig"
 
-link_path "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.codex/AGENTS.md"
-link_path "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.pi/agent/AGENTS.md"
-link_path "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.config/opencode/AGENTS.md"
-link_path "${REPO_DIR}/agents/AGENTS.md" "${HOME}/.claude/CLAUDE.md"
-
 configure_git_identity
 
 if ! $SKIP_AGENTS; then
