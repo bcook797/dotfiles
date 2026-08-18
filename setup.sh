@@ -10,6 +10,9 @@ export PATH="${HOME}/.local/bin:${PATH}"
 
 DRY_RUN=false
 SKIP_AGENTS=false
+SKIP_BROWSERS=false
+SKIP_COMMUNICATION_KNOWLEDGE=false
+SKIP_SECURITY_NETWORKING=false
 REFRESH_AGENTS=false
 SKIP_NVIM_SYNC=false
 APPLY_MACOS_DEFAULTS=false
@@ -21,7 +24,12 @@ Usage: ./setup.sh [options]
 
 Options:
   --dry-run          Show what would change without changing it
-  --skip-agents      Do not install native-only coding-agent harnesses
+  --skip-agents      Do not install any coding-agent harnesses
+  --skip-browsers    Do not install web browsers
+  --skip-communication-knowledge
+                     Do not install communication and knowledge apps
+  --skip-security-networking
+                     Do not install security and networking apps
   --refresh-agents   Re-run native-only installers when commands exist
   --skip-nvim-sync   Do not install/synchronize LazyVim plugins
   --github-ssh       Authenticate GitHub and configure an SSH key
@@ -48,6 +56,9 @@ while (($#)); do
   case "$1" in
     --dry-run) DRY_RUN=true ;;
     --skip-agents) SKIP_AGENTS=true ;;
+    --skip-browsers) SKIP_BROWSERS=true ;;
+    --skip-communication-knowledge) SKIP_COMMUNICATION_KNOWLEDGE=true ;;
+    --skip-security-networking) SKIP_SECURITY_NETWORKING=true ;;
     --refresh-agents) REFRESH_AGENTS=true ;;
     --skip-nvim-sync) SKIP_NVIM_SYNC=true ;;
     --github-ssh) SETUP_GITHUB_SSH=true ;;
@@ -284,7 +295,13 @@ ensure_command_line_tools
 ensure_homebrew
 
 if command -v brew >/dev/null 2>&1; then
-  run brew bundle --file "${REPO_DIR}/Brewfile"
+  brew_bundle_env=()
+  # Homebrew preserves HOMEBREW_* variables when it evaluates the Brewfile.
+  $SKIP_AGENTS && brew_bundle_env+=("HOMEBREW_DOTFILES_SKIP_AGENTS=1")
+  $SKIP_BROWSERS && brew_bundle_env+=("HOMEBREW_DOTFILES_SKIP_BROWSERS=1")
+  $SKIP_COMMUNICATION_KNOWLEDGE && brew_bundle_env+=("HOMEBREW_DOTFILES_SKIP_COMMUNICATION_KNOWLEDGE=1")
+  $SKIP_SECURITY_NETWORKING && brew_bundle_env+=("HOMEBREW_DOTFILES_SKIP_SECURITY_NETWORKING=1")
+  run env "${brew_bundle_env[@]}" brew bundle --file "${REPO_DIR}/Brewfile"
 fi
 
 link_path "${REPO_DIR}/.zshrc" "${HOME}/.zshrc"
@@ -315,4 +332,4 @@ if $APPLY_MACOS_DEFAULTS; then
   run "${REPO_DIR}/scripts/macos-defaults.sh"
 fi
 
-log "Setup complete. Open a new Ghostty window, run scripts/doctor.sh, then authenticate gh and each managed coding agent."
+log "Setup complete. Open a new Ghostty window, run scripts/doctor.sh, then authenticate gh and any installed coding agents."

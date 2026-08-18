@@ -1,19 +1,23 @@
 cask_args appdir: "/Applications"
 
-tap "anomalyco/tap"
-
 # Browsers
-cask "google-chrome"
-cask "firefox"
+unless ENV["HOMEBREW_DOTFILES_SKIP_BROWSERS"] == "1"
+  cask "google-chrome"
+  cask "firefox"
+end
 
 # Communication and knowledge
-cask "zoom"
-cask "obsidian"
-cask "slack"
+unless ENV["HOMEBREW_DOTFILES_SKIP_COMMUNICATION_KNOWLEDGE"] == "1"
+  cask "zoom"
+  cask "obsidian"
+  cask "slack"
+end
 
 # Security and networking
-cask "1password"
-cask "outline-manager"
+unless ENV["HOMEBREW_DOTFILES_SKIP_SECURITY_NETWORKING"] == "1"
+  cask "1password"
+  cask "outline-manager"
+end
 
 # Terminal and editor
 cask "ghostty"
@@ -45,6 +49,9 @@ brew "neovim"
 brew "tree-sitter-cli"
 
 # Coding agents managed by Homebrew
-cask "claude-code"
-cask "codex"
-brew "anomalyco/tap/opencode"
+unless ENV["HOMEBREW_DOTFILES_SKIP_AGENTS"] == "1"
+  tap "anomalyco/tap"
+  cask "claude-code"
+  cask "codex"
+  brew "anomalyco/tap/opencode"
+end

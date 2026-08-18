@@ -24,18 +24,21 @@ Preview all bootstrap actions without making changes:
 Other options:
 
 ```text
---skip-agents      Skip native-only coding-agent harnesses
---refresh-agents   Re-run native-only installers when commands exist
---skip-nvim-sync   Skip the headless LazyVim plugin synchronization
---github-ssh       Authenticate GitHub and configure an SSH key
---macos-defaults   Apply the reviewed, opt-in macOS preferences
+--skip-agents                    Skip all coding-agent harnesses
+--skip-browsers                  Skip web browsers
+--skip-communication-knowledge   Skip communication and knowledge apps
+--skip-security-networking       Skip security and networking apps
+--refresh-agents                 Re-run native-only installers when commands exist
+--skip-nvim-sync                 Skip the headless LazyVim plugin synchronization
+--github-ssh                     Authenticate GitHub and configure an SSH key
+--macos-defaults                 Apply the reviewed, opt-in macOS preferences
 ```
 
 Conflicting files are moved to `~/.dotfiles-backup/<timestamp>/`. The script never removes extra Homebrew packages or old agent installations.
 
 ## What is managed
 
-The Brewfile owns the universal desktop and CLI baseline. Repository files are linked into their standard locations for Zsh and Git. Ghostty uses its built-in defaults. The bootstrap installs the official LazyVim starter directly in `~/.config/nvim`, while Starship's official Catppuccin Powerline preset is generated locally during setup.
+The Brewfile owns the universal desktop and CLI baseline. Browsers, communication and knowledge apps, security and networking apps, and coding agents are installed by default but can be omitted with the corresponding `--skip-*` flags. Repository files are linked into their standard locations for Zsh and Git. Ghostty uses its built-in defaults. The bootstrap installs the official LazyVim starter directly in `~/.config/nvim`, while Starship's official Catppuccin Powerline preset is generated locally during setup.
 
 Language runtimes are normally project-scoped through mise. Node.js is the deliberate exception: the bootstrap runs `mise use --global node@latest` because the native Pi installer requires it.
 
