@@ -17,6 +17,9 @@ export CLAUDE_CODE_PACKAGE_MANAGER_AUTO_UPDATE=1
 export EDITOR="nvim"
 export VISUAL="nvim"
 
+# Enter a directory by typing its path without an explicit cd command.
+setopt AUTO_CD
+
 HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"
 HISTSIZE=50000
 SAVEHIST=50000
@@ -28,6 +31,14 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
+
+# Use eza's modern defaults while preserving the familiar ls command.
+alias ls="eza --icons --color=always"
+alias l="eza -l --icons --color=always"
+alias la="eza -la --icons --color=always"
+alias ll="eza -la --git --icons --color=always"
+alias lt="eza --tree --level=2 --icons --color=always"
+
 
 autoload -Uz compinit
 compinit
@@ -50,3 +61,8 @@ fi
 if [[ -n "${brew_prefix:-}" && -r "${brew_prefix}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
   source "${brew_prefix}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
+
+function chpwd() {
+    emulate -L zsh
+    ls -a
+}

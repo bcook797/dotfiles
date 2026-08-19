@@ -38,6 +38,7 @@ brew "tig"
 brew "lazygit"
 
 # Modern command-line essentials
+brew "eza"
 brew "ripgrep"
 brew "fd"
 brew "fzf"
