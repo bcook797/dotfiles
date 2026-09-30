@@ -16,6 +16,7 @@ end
 # Security and networking
 unless ENV["HOMEBREW_DOTFILES_SKIP_SECURITY_NETWORKING"] == "1"
   cask "1password"
+  cask "1password-cli"
   cask "outline-manager"
 end
 
